@@ -2,13 +2,13 @@ import { GrMail, GrMapLocation } from "react-icons/gr";
 import { BsTelephoneFill } from "react-icons/bs";
 import { GoClockFill } from "react-icons/go";
 import IncentiveForm from "./components/IncentiveForm";
-
+import logo from "../../assets/images/logo_godiva.jpg"
 const Footer = () => {
   return (
     <div className="bg-[#8D25C4] w-full mx-auto">
         <div className="max-w-7xl mx-auto py-5 text-white flex justify-between flex-wrap gap-5 max-xl:px-5">
             <div className="flex-1">
-                <img src="../../../src/assets/images/logo_godiva.jpg" alt="" className="w-20 h-20"/>
+                <img src={logo} alt="" className="w-20 h-20"/>
                 <p className="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro commodi repellat pariatur optio itaque maxime doloribus facere iusto repellendus numquam consectetur, exercitationem, nostrum nisi necessitatibus eligendi unde esse atque ab?</p>
                 <p className="font-semibold italic text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
             </div>
