@@ -58,7 +58,7 @@ export const HomePage = () => {
     <div className="bg-[#EDEAFF] pb-20">
         <div className="">
             <img src={bannerImage} alt="" className="w-full object-cover"/>
-            <form onSubmit={handleSubmit} className="flex justify-between items-center gap-5 max-xl:flex-col max-xl:gap-2.5 max-w-7xl mx-auto bg-[#8D25C4] shadow p-5">
+            <form onSubmit={handleSubmit} className="flex justify-between items-center gap-5 max-xl:flex-col max-xl:gap-2.5 max-w-7xl mx-auto bg-[#CCB0FE] shadow p-5">
                 <p className="uppercase font-bold text-white">Nhận ưu đại ngay</p>
                 <div className="flex gap-5 flex-grow max-[450px]:flex-wrap">
                     <InputElement placeholder={namePlaceholder} name="name" value={formState.name} required={true} onChange={handleOnChange} className="sm:h-10"/>
