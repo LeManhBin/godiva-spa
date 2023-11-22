@@ -1,9 +1,15 @@
 export const reducer = (state, action) => {
-    switch (action) {
-        case "TOGGLE_REGISTER": {
+    switch (action.type) {
+        case "OPEN_REGISTER": {
             return {
                 ...state,
-                isOpenRegisterModal: !state.isOpenRegisterModal
+                isOpenRegisterModal: action.payload
+            }
+        }
+        case "CLOSE_REGISTER": {
+            return {
+                ...state,
+                isOpenRegisterModal: action.payload
             }
         }
         default:

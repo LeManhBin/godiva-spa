@@ -15,7 +15,7 @@ export const RegisterModal = () => {
     const [state, dispatch] = useContext(WebContext)
     const navigate = useNavigate()
     const handleClose = () => {
-        dispatch("TOGGLE_REGISTER")
+        dispatch({type: "CLOSE_REGISTER", payload: false})
     }
 
     const handleOnChange = (e) => {

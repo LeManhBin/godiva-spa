@@ -3,6 +3,7 @@ import { GrClose } from "react-icons/gr"
 import { BiMenuAltRight } from "react-icons/bi";
 import { WebContext } from "../../contexts/Provider/ContextProvider";
 import { useNavigate } from "react-router-dom";
+import { useLayoutEffect } from "react";
 
 const Header = () => {
   const [isOpenHeader, setIsOpenHeader] = useState(false)
@@ -22,10 +23,17 @@ const Header = () => {
     if(userData) {
       navigate("/banggia")
     } else {
-      dispatch('TOGGLE_REGISTER')
+      dispatch({type: "OPEN_REGISTER", payload: true})
     }
   }
 
+
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      dispatch({type: "OPEN_REGISTER", payload: true})
+    }, 2500);
+  },[])
+  
   return (
     <header className="fixed z-10 left-0 right-0 top-0 h-20 bg-white max-xl:px-5">
       {

@@ -14,7 +14,7 @@ const MainLayout = () => {
         <div className='mt-20'>
             <Outlet/>
             {
-              state.isOpenRegisterModal &&
+              state?.isOpenRegisterModal &&
               <RegisterModal/>
             }
         </div>
