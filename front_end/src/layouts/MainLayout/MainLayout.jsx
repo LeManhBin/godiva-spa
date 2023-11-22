@@ -11,7 +11,7 @@ const MainLayout = () => {
   return (
     <>
         <Header/>
-        <div className='my-20'>
+        <div className='mt-20'>
             <Outlet/>
             {
               state.isOpenRegisterModal &&

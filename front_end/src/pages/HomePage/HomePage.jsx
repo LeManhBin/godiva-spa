@@ -14,7 +14,7 @@ import 'swiper/css/pagination';
 export const HomePage = () => {
 
   return (
-    <div>
+    <div className="bg-[#EDEAFF] pb-20">
         <div className="">
             <img src={bannerImage} alt="" className="w-full object-cover"/>
             <div className="flex justify-between items-center gap-5 max-xl:flex-col max-xl:gap-2.5 max-w-7xl mx-auto bg-[#8D25C4] shadow p-5">
@@ -196,7 +196,7 @@ export const HomePage = () => {
             </div>
         </div>
 
-        <div className="h-[500px] px-24 max-sm:px-5 mt-20 flex justify-center items-center gap-32 max-lg:gap-10 max-lg:flex-col-reverse max-lg:h-auto max-lg:py-5 bg-[#F1EAFF]">
+        <div className="h-[500px] px-24 max-sm:px-5 mt-20 flex justify-center items-center gap-32 max-lg:gap-10 max-lg:flex-col-reverse max-lg:h-auto max-lg:py-5 bg-[#CCB0FE]">
             <img src={homeImage} alt="" className="h-full max-lg:h-[300px]"/>
             <div className="flex flex-col items-center">
                 <h1 className="text-[#8D25C4] font-extrabold text-4xl max-lg:text-center">Viện Thẩm Mỹ Godiva</h1>

@@ -6,6 +6,7 @@ import SuccessPage from './pages/SuccessPage'
 import DashboardPage from './pages/DashboardPage'
 import AdminLayout from './layouts/AdminLayout/AdminLayout'
 import CustomerPage from './pages/CustomerPage'
+import LoginPage from './pages/LoginPage'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route index element={<DashboardPage/>}/>
             <Route path='customer' element={<CustomerPage/>}/>
           </Route>
+          <Route path='/login' element={<LoginPage/>}/>
           <Route path='/success' element={<SuccessPage/>}/>
         </Routes>
       </BrowserRouter>

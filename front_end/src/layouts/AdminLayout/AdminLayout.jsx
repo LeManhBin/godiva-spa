@@ -2,9 +2,9 @@ import { useState } from 'react';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
+  AppstoreAddOutlined,
   UserOutlined,
-  VideoCameraOutlined,
+  LineChartOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
 import { Link, Outlet, useLocation } from 'react-router-dom';
@@ -28,19 +28,19 @@ const AdminLayout = () => {
           items={[
             {
               key: '/admin',
-              icon: <UserOutlined />,
-              label:<Link to="/admin">nav 1</Link>
+              icon: <LineChartOutlined />,
+              label:<Link to="/admin">Thống kê</Link>
               ,
             },
             {
               key: '/admin/customer',
-              icon: <VideoCameraOutlined />,
+              icon: <UserOutlined />,
               label: <Link to="/admin/customer?page=1&limit=10">Khách hàng</Link>,
             },
             {
               key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
+              icon: <AppstoreAddOutlined />,
+              label: 'Dịch vụ',
             },
           ]}
         />

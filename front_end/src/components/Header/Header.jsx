@@ -20,7 +20,7 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed z-50 left-0 right-0 top-0 h-20 bg-white max-xl:px-5">
+    <header className="fixed z-10 left-0 right-0 top-0 h-20 bg-white max-xl:px-5">
       {
         isOpenHeader &&
         <div className="fixed bg-black inset-0 opacity-60" onClick={handleToggleHeader}></div>

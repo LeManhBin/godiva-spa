@@ -43,12 +43,12 @@ export const IncentiveForm = () => {
             <p className="text-xs text-black">*Chỉ áp dụng cho 20 khách hàng đăng ký đầu tiên</p>
         </div>
         <form action="" className="flex flex-col gap-2.5 " onSubmit={handleSubmit}>
-            <InputElement label="Họ và Tên" placeholder="Nhập họ và tên" name="name" onChange={handleOnChange}/>
+            <InputElement label="Họ và Tên" placeholder="Nhập họ và tên" required={true} name="name" onChange={handleOnChange}/>
             <div className="flex flex-wrap gap-2.5">
-                <InputElement label="Số điện thoại" placeholder="Nhập số điện thoại" name="phoneNumber" onChange={handleOnChange}/>
-                <InputElement type="email" label="Email" placeholder="Nhập email" name="email" onChange={handleOnChange}/>
+                <InputElement label="Số điện thoại" required={true} placeholder="Nhập số điện thoại" name="phoneNumber" onChange={handleOnChange}/>
+                <InputElement type="email" label="Email" required={false} placeholder="Nhập email" name="email" onChange={handleOnChange}/>
             </div>
-            <InputElement label="Lời nhắn" placeholder="Để lại lời nhắn cho chúng tôi" name="note" onChange={handleOnChange}/>
+            <InputElement label="Lời nhắn" required={false} placeholder="Để lại lời nhắn cho chúng tôi" name="note" onChange={handleOnChange}/>
             <button type="submit" className="uppercase bg-[#8D25C4] py-1.5 text-sm font-semibold rounded">Nhận ưu đãi</button>
         </form>
     </div>

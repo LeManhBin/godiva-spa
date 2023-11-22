@@ -46,7 +46,7 @@ export const RegisterModal = () => {
     }
 
   return (
-    <div className="fixed inset-0 h-full flex items-center justify-center">
+    <div className="fixed z-50 inset-0 h-full flex items-center justify-center">
         <div className="bg-black opacity-75 w-full h-full" onClick={handleClose}></div>
         <div className="absolute w-[350px] shadow-xl z-40 bg-white">
             <div className="absolute right-2.5 top-2.5 cursor-pointer" onClick={handleClose}>
@@ -55,8 +55,8 @@ export const RegisterModal = () => {
             <div className="h-[400px] bg-slate-300">
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col items-center gap-2.5 p-5">
-                <InputElement label="Họ và tên" placeholder="Nhập họ và tên" value={formState.name} onChange={handleOnChange} name="name"/>
-                <InputElement label="Số điện thoại" placeholder="Nhập số điện thoại" value={formState.phoneNumber} onChange={handleOnChange} name="phoneNumber"/>
+                <InputElement label="Họ và tên" placeholder="Nhập họ và tên" required={true} value={formState.name} onChange={handleOnChange} name="name"/>
+                <InputElement label="Số điện thoại" placeholder="Nhập số điện thoại" required={true} value={formState.phoneNumber} onChange={handleOnChange} name="phoneNumber"/>
                 <button type="submit" className="px-2.5 py-1.5 bg-[#8D25C4] text-white rounded font-medium">
                     Đăng ký ngay
                 </button>
