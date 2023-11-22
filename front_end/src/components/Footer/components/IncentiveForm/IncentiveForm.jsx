@@ -3,6 +3,7 @@ import InputElement from "../../../InputElement"
 import { fetchRegister } from "../../../../api/user.api"
 import { toast } from "react-toastify"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const IncentiveForm = () => {
   const [formState, setFormState] = useState({
@@ -11,6 +12,7 @@ export const IncentiveForm = () => {
     phoneNumber: "",
     note: ""
   })
+  const navigate = useNavigate()
 
   const handleOnChange = (e) => {
     const {name, value} = e.target;
@@ -20,21 +22,22 @@ export const IncentiveForm = () => {
     })
   }
   const registerMutation = useMutation({
-      mutationFn: (payload) => {
-          fetchRegister(payload)
-      },
-      onSuccess: () => {
-        toast.success("Đăng ký ưu đãi thành công")
-        localStorage.setItem("user", JSON.stringify(formState))
-      },
-      onError: () => {
-        toast.warning("Lỗi")
-      }
+      mutationFn: (payload) => fetchRegister(payload)
   })
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    registerMutation.mutate(formState)
+    registerMutation.mutate(formState, {
+        onSuccess: (formResponsive) => {
+          if(formResponsive.status == 200) {
+                  navigate("/success")
+                  sessionStorage.setItem("user", JSON.stringify(formState))
+              }
+          },
+          onError: () => {
+              toast.error("Có lỗi xãy ra")
+        }
+    })
   }
   return (
     <div className="p-5 bg-white flex flex-col gap-2.5 rounded-md">

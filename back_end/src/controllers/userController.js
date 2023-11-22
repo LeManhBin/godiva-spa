@@ -32,7 +32,6 @@ export const handleGetAllUser = async(req, res) => {
         const users = await User.find({}).skip(startIndex).limit(limitNumber).sort({createdAt: -1})
         const totalPage = await User.countDocuments({})
 
-        console.log("===",totalPage);
         res.status(200).json({
             data: users,
             pagination: {
@@ -42,6 +41,27 @@ export const handleGetAllUser = async(req, res) => {
             message: "Get users success"
         })
         
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+}
+
+export const handleDeleteUser = async(req, res) => {
+    try {
+        const {userId} = req.params
+        const user = await User.findOne({_id: userId})
+        if(!user) {
+            return res.status(404).json({
+                message: "User not found"
+            })
+        }
+        const userDeleted = await User.deleteOne({_id: userId})
+        res.status(200).json({
+            data: userDeleted,
+            message: "Delete success"
+        })
     } catch (error) {
         res.status(500).json({
             message: error.message

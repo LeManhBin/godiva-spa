@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BE_URL } from "../constants/url";
+import { toast } from "react-toastify";
 
 export const fetchGetAllCustomer = async ({queryKey}) => {
     try {
@@ -7,5 +8,14 @@ export const fetchGetAllCustomer = async ({queryKey}) => {
         return customers
     } catch (error) {
         console.log(error);
+    }
+}
+
+export const fetchDeleteCustomer = async (userId) => {
+    try {
+        const customer =  await axios.delete(`${BE_URL}/user/${userId}`)
+        return customer
+    } catch (error) {
+        toast.error(error.message)
     }
 }

@@ -2,10 +2,13 @@ import { useContext, useState } from "react"
 import { GrClose } from "react-icons/gr"
 import { BiMenuAltRight } from "react-icons/bi";
 import { WebContext } from "../../contexts/Provider/ContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isOpenHeader, setIsOpenHeader] = useState(false)
   const [state, dispatch] = useContext(WebContext)
+  const navigate = useNavigate()
+  const userData =  JSON.parse( sessionStorage.getItem("user"));
 
   const handleToggleHeader = () => {
     setIsOpenHeader(!isOpenHeader)
@@ -16,7 +19,11 @@ const Header = () => {
   }
 
   const handleOpenRegisterModal = () => {
-    dispatch('TOGGLE_REGISTER')
+    if(userData) {
+      navigate("/banggia")
+    } else {
+      dispatch('TOGGLE_REGISTER')
+    }
   }
 
   return (
@@ -32,19 +39,19 @@ const Header = () => {
         <ul className={`flex items-center gap-10 max-xl:gap-5 max-lg:flex-col max-lg:gap-10 max-lg:text-xl max-lg:bg-white max-lg:w-[50%] max-sm:w-[80%] max-lg:h-screen max-lg:shadow max-lg:py-20 max-lg:absolute ease-in-out duration-300 z-50 ${isOpenHeader ? 'max-lg:right-0 max-lg:top-0 max-lg:bottom-0' : 'max-lg:right-[-100%]'}`}>
           <GrClose size={30} color="#8D25C4" className="absolute top-5 left-5 lg:hidden" onClick={handleToggleHeader}/>
           <li className="cursor-pointer font-medium" >
-            <a href="#" onClick={handleCloseHeader}>Ưu Đãi</a>
+            <a href="/#" onClick={handleCloseHeader}>Ưu Đãi</a>
           </li>
           <li className="cursor-pointer font-medium" >
-            <a href="#dichvu" onClick={handleCloseHeader}>Dịch Vụ</a>
+            <a href="/#dichvu" onClick={handleCloseHeader}>Dịch Vụ</a>
           </li>
           <li className="cursor-pointer font-medium" >
-            <a href="#congnghe" onClick={handleCloseHeader}>Công Nghệ</a>
+            <a href="/#congnghe" onClick={handleCloseHeader}>Công Nghệ</a>
           </li>
           <li className="cursor-pointer font-medium" >
-            <a href="#khachhang" onClick={handleCloseHeader}>Khách Hàng</a>
+            <a href="/#khachhang" onClick={handleCloseHeader}>Khách Hàng</a>
           </li>
           <li className="cursor-pointer font-medium" >
-            <a href="#doingubacsi" onClick={handleCloseHeader}>Đội Ngũ Bác Sĩ</a>
+            <a href="/#doingubacsi" onClick={handleCloseHeader}>Đội Ngũ Bác Sĩ</a>
           </li>
         </ul>
         <div className="flex items-center gap-5">

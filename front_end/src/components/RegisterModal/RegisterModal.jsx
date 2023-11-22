@@ -5,6 +5,7 @@ import { WebContext } from "../../contexts/Provider/ContextProvider";
 import { fetchRegister } from "../../api/user.api";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 export const RegisterModal = () => {
     const [formState, setFormState] = useState({
@@ -26,23 +27,23 @@ export const RegisterModal = () => {
     }
 
     const registerMutation = useMutation({
-        mutationFn: (payload) => {
-            fetchRegister(payload)
-        },
-        onSuccess: () => {
-            navigate("/success")
-            localStorage.setItem("user", JSON.stringify(formState))
-            dispatch("TOGGLE_REGISTER")
-            setFormState({
-                name: "",
-                phoneNumber: ""
-            })
-        }
+        mutationFn: (payload) => fetchRegister(payload)
+
     })
 
     const handleSubmit =  (e) => {
         e.preventDefault()
-        registerMutation.mutate(formState)
+        registerMutation.mutate(formState, {
+            onSuccess: (formResponsive) => {
+                if(formResponsive.status == 200) {
+                    navigate("/success")
+                    sessionStorage.setItem("user", JSON.stringify(formState))
+                }
+            },
+            onError: () => {
+                toast.error("Có lỗi xãy ra")
+            }
+        })
     }
 
   return (
